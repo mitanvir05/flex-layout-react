@@ -7,6 +7,7 @@ const App = () => {
   const [justifyContent, setJustifyContent] = useState('flex-start');
   const [alignItems, setAlignItems] = useState('stretch');
   const [alignContent, setAlignContent] = useState('stretch');
+  const [flexWrap, setFlexWrap] = useState('nowrap');
   const [items, setItems] = useState([1, 2, 3]);
 
   const addItem = () => {
@@ -22,6 +23,7 @@ const App = () => {
     setJustifyContent('flex-start');
     setAlignItems('stretch');
     setAlignContent('stretch');
+    setFlexWrap('nowrap');
     setItems([1, 2, 3]);
   };
 
@@ -30,15 +32,6 @@ const App = () => {
       <div className="sidebar">
         <h1>Flex Layout Builder</h1>
         <div className="controls">
-          <div>
-            <label>Flex Direction:</label>
-            <select value={flexDirection} onChange={(e) => setFlexDirection(e.target.value)}>
-              <option value="row">Row</option>
-              <option value="row-reverse">Row Reverse</option>
-              <option value="column">Column</option>
-              <option value="column-reverse">Column Reverse</option>
-            </select>
-          </div>
           <div>
             <label>Justify Content:</label>
             <select value={justifyContent} onChange={(e) => setJustifyContent(e.target.value)}>
@@ -58,6 +51,23 @@ const App = () => {
               <option value="flex-end">Flex End</option>
               <option value="center">Center</option>
               <option value="baseline">Baseline</option>
+            </select>
+          </div>
+          <div>
+            <label>Flex Direction:</label>
+            <select value={flexDirection} onChange={(e) => setFlexDirection(e.target.value)}>
+              <option value="row">Row</option>
+              <option value="row-reverse">Row Reverse</option>
+              <option value="column">Column</option>
+              <option value="column-reverse">Column Reverse</option>
+            </select>
+          </div>
+          <div>
+            <label>Flex Wrap:</label>
+            <select value={flexWrap} onChange={(e) => setFlexWrap(e.target.value)}>
+              <option value="nowrap">No Wrap</option>
+              <option value="wrap">Wrap</option>
+              <option value="wrap-reverse">Wrap Reverse</option>
             </select>
           </div>
           <div>
@@ -86,6 +96,7 @@ const App = () => {
           justifyContent,
           alignItems,
           alignContent,
+          flexWrap,
         }}
       >
         {items.map((item, index) => (
