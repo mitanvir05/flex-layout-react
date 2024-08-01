@@ -1,38 +1,86 @@
+/* src/App.css */
 .App {
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.controls {
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.controls div {
+  margin-bottom: 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.controls label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.controls select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+.item-controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.item-controls button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #4CAF50;
   color: white;
+  transition: background-color 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.item-controls button:hover {
+  background-color: #45a049;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flex-container {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  margin-left: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 4px;
+  overflow: auto;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  flex: 1 1 100px;
+  border-radius: 4px;
 }
