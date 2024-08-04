@@ -8,13 +8,13 @@ const App = () => {
   const [alignContent, setAlignContent] = useState('stretch');
   const [flexWrap, setFlexWrap] = useState('nowrap');
   const [items, setItems] = useState([
-    { id: 1, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 },
-    { id: 2, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 },
-    { id: 3, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 },
+    { id: 1, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1, flexShrink: 1 },
+    { id: 2, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1, flexShrink: 1 },
+    { id: 3, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1, flexShrink: 1 },
   ]);
 
   const addItem = () => {
-    setItems([...items, { id: items.length + 1, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 }]);
+    setItems([...items, { id: items.length + 1, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1, flexShrink: 1 }]);
   };
 
   const removeItem = () => {
@@ -28,9 +28,9 @@ const App = () => {
     setAlignContent('stretch');
     setFlexWrap('nowrap');
     setItems([
-      { id: 1, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 },
-      { id: 2, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 },
-      { id: 3, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 },
+      { id: 1, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1, flexShrink: 1 },
+      { id: 2, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1, flexShrink: 1 },
+      { id: 3, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1, flexShrink: 1 },
     ]);
   };
 
@@ -142,6 +142,16 @@ const App = () => {
                   step="1"
                 />
               </div>
+              <div>
+                <label>Flex Shrink:</label>
+                <input
+                  type="number"
+                  value={item.flexShrink}
+                  onChange={(e) => updateItemProperty(index, 'flexShrink', parseInt(e.target.value))}
+                  min="0"
+                  step="1"
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -166,6 +176,7 @@ const App = () => {
               alignSelf: item.alignSelf,
               flexBasis: item.flexBasis,
               flexGrow: item.flexGrow,
+              flexShrink: item.flexShrink,
             }}
           >
             Item {item.id}

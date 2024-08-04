@@ -1,3 +1,4 @@
+
 .App {
   font-family: Arial, sans-serif;
   display: flex;
@@ -40,7 +41,7 @@
   font-weight: bold;
 }
 
-.controls select, 
+.controls select,
 .controls input {
   width: calc(100% - 16px);
   padding: 8px;
