@@ -8,13 +8,13 @@ const App = () => {
   const [alignContent, setAlignContent] = useState('stretch');
   const [flexWrap, setFlexWrap] = useState('nowrap');
   const [items, setItems] = useState([
-    { id: 1, order: 0, alignSelf: 'auto', flexBasis: '100px' },
-    { id: 2, order: 0, alignSelf: 'auto', flexBasis: '100px' },
-    { id: 3, order: 0, alignSelf: 'auto', flexBasis: '100px' },
+    { id: 1, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 },
+    { id: 2, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 },
+    { id: 3, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 },
   ]);
 
   const addItem = () => {
-    setItems([...items, { id: items.length + 1, order: 0, alignSelf: 'auto', flexBasis: '100px' }]);
+    setItems([...items, { id: items.length + 1, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 }]);
   };
 
   const removeItem = () => {
@@ -28,9 +28,9 @@ const App = () => {
     setAlignContent('stretch');
     setFlexWrap('nowrap');
     setItems([
-      { id: 1, order: 0, alignSelf: 'auto', flexBasis: '100px' },
-      { id: 2, order: 0, alignSelf: 'auto', flexBasis: '100px' },
-      { id: 3, order: 0, alignSelf: 'auto', flexBasis: '100px' },
+      { id: 1, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 },
+      { id: 2, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 },
+      { id: 3, order: 0, alignSelf: 'auto', flexBasis: '100px', flexGrow: 1 },
     ]);
   };
 
@@ -132,6 +132,16 @@ const App = () => {
                   placeholder="e.g., 100px, 50%"
                 />
               </div>
+              <div>
+                <label>Flex Grow:</label>
+                <input
+                  type="number"
+                  value={item.flexGrow}
+                  onChange={(e) => updateItemProperty(index, 'flexGrow', parseInt(e.target.value))}
+                  min="0"
+                  step="1"
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -155,6 +165,7 @@ const App = () => {
               order: item.order,
               alignSelf: item.alignSelf,
               flexBasis: item.flexBasis,
+              flexGrow: item.flexGrow,
             }}
           >
             Item {item.id}
